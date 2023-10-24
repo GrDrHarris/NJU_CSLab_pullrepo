@@ -15,7 +15,8 @@ const string files[] = {
     "libsponge/byte_stream.cc", "libsponge/byte_stream.hh", "libsponge/stream_reassembler.cc", 
     "libsponge/stream_reassembler.hh", "$lab2",
     "libsponge/wrapping_integers.cc", "libsponge/wrapping_integers.hh", 
-    "libsponge/tcp_receiver.cc", "libsponge/tcp_receiver.hh", "$lab3"
+    "libsponge/tcp_receiver.cc", "libsponge/tcp_receiver.hh", "$lab3",
+    "libsponge/tcp_sender.cc", "libsponge/tcp_sender.hh", "$lab4"
 };
 int main(int argc, char **argv)
 {
