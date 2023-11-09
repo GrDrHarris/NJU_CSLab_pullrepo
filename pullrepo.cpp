@@ -1,9 +1,9 @@
 #include<cstdio>
+#include<cstring>
 #include<string>
 using std::string;
-//remember to modify your name and year!
-const string UserName = "GrDrHarris";
-const string Year = "2023autumn";
+
+#include "config.inc"
 
 const string __ = "-" + Year + "-"+ UserName;
 const string path_prefix = "lab";
@@ -20,17 +20,22 @@ const string files[] = {
 };
 int main(int argc, char **argv)
 {
-    if(argc != 2)
+    if(argc != 2 && argc != 3)
     {
         printf("Usage: pullrepo number\n");
         return -1;
     }
     int lab_now;
     sscanf(*(argv + 1), "%d", &lab_now);
-    printf("going to pull lab%d\nPress any key to continue.\n", lab_now);
-    system("read var");
-    string git_cmd = git_prefix + std::to_string(lab_now) + git_suffix;
-    system(git_cmd.c_str()); 
+    if(argc == 3 && strcmp(*(argv + 2), "-skip") == 0)
+    {
+        printf("git clone skipped by argumnets\n");
+    }else{
+        printf("going to pull lab%d\nPress any key to continue.\n", lab_now);
+        system("read var");
+        string git_cmd = git_prefix + std::to_string(lab_now) + git_suffix;
+        system(git_cmd.c_str()); 
+    }
     if(lab_now == 0)
         return 0;
     string now_path = path_prefix + std::to_string(lab_now) + path_suffix;
